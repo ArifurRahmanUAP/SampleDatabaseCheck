@@ -53,23 +53,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     if(v.getId()==R.id.submitid)
     {
-        String name = Name.getText().toString().trim();
-        String gender = Gender.getSelectedItem().toString().trim();
-        String age = Age.getText().toString().trim();
+        String name = Name.getText().toString();
+        String gender = Gender.getSelectedItem().toString();
+        String age = Age.getText().toString();
+        long rowid = database.insertData(name, gender, age);
+        if(rowid ==-1)
+        {
+            Toast.makeText(getApplicationContext(),"Unsucessfull",Toast.LENGTH_LONG).show();
 
+        }
+        else{
+            Toast.makeText(getApplicationContext(),"Sucessfull",Toast.LENGTH_LONG).show();
 
-        if(name.equals("") || gender.equals("") || age.equals("")){
-            Toast.makeText(getApplicationContext(),"Please Enter all the data ",Toast.LENGTH_LONG).show();
-        }else {
-
-            long rowid = database.insertData(name, gender, age);
-            if (rowid == -1) {
-                Toast.makeText(getApplicationContext(), "Unsucessfull", Toast.LENGTH_LONG).show();
-
-            } else {
-                Toast.makeText(getApplicationContext(), "Sucessfull", Toast.LENGTH_LONG).show();
-
-            }
         }
     }
     else if(v.getId()==R.id.showtid)

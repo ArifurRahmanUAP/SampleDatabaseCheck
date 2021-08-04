@@ -2,11 +2,13 @@ package com.example.pharmacy;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -15,16 +17,21 @@ import java.util.ArrayList;
 public class ListDataActivity extends AppCompatActivity {
     private ListView listView;
     private Database database;
+    private ImageButton delete;
     ArrayAdapter<String> adapterView;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState ) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_data);
 
+
         listView = findViewById(R.id.listid);
+        delete = findViewById(R.id.delete);
         database = new Database(this);
         loadData();
+
+
     }
 
     public void loadData() {
@@ -50,6 +57,11 @@ public class ListDataActivity extends AppCompatActivity {
             }
         });
     }
+
+
+
+
+
 
 
 }
