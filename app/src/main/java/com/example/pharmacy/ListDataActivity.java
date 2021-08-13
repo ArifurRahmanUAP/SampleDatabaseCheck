@@ -31,7 +31,6 @@ public class ListDataActivity extends AppCompatActivity {
         database = new Database(this);
         loadData();
 
-
     }
 
     public void loadData() {
@@ -57,11 +56,5 @@ public class ListDataActivity extends AppCompatActivity {
             }
         });
     }
-
-
-
-
-
-
 
 }

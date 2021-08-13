@@ -1,5 +1,6 @@
 package com.example.pharmacy;
 
+import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -50,9 +51,7 @@ public class Database extends SQLiteOpenHelper {
             onCreate(sqLiteDatabase);
         } catch (Exception e) {
             Toast.makeText(context, "Exception: " + e, Toast.LENGTH_LONG).show();
-
         }
-
     }
 
     public long insertData(String name, String gender, String age) {
@@ -71,13 +70,9 @@ public class Database extends SQLiteOpenHelper {
         return cursor;
     }
 
-//    public int delete(int id)
-//    {
-//        Database database = new Database();
-//        DELETE_TABLE
-//    SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
-//        return database.delete(sqLiteDatabase.DELETE_TABLE, id);
-//
-//    }
 
+    public Integer delete() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.delete(NAME,"ID = ?",new String[]  {});
+    }
 }

@@ -68,7 +68,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
     else if(v.getId()==R.id.showtid)
-    {
+    {            Toast.makeText(getApplicationContext(),"Show",Toast.LENGTH_LONG).show();
+
         Intent intent = new Intent(MainActivity.this, ListDataActivity.class);
         startActivity(intent);
 
